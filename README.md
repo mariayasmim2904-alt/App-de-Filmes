@@ -61,7 +61,7 @@ git clone https://github.com/mariayasmim2904-alt/App-de-Filmes.git
 ### Entre na pasta
 
 ```bash
-cd aplicativo_de_filmes
+cd app_de_filmes
 ```
 
 ### Instale as dependências
