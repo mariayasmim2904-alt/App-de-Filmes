@@ -55,7 +55,7 @@ src/
 ### Clone o repositório
 
 ```bash
-git clone https://github.com/SEU-USUARIO/SEU-REPOSITORIO.git
+git clone https://github.com/mariayasmim2904-alt/App-de-Filmes.git
 ```
 
 ### Entre na pasta
