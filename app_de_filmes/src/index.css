@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-netflix-red: #E50914;
+  --color-disney-blue: #3B82F6;
+  --color-bg-dark: #0D1117;
+  --color-bg-light: #F8FAFC;
+  --color-card-dark: #161B22;
+  --color-card-light: #FFFFFF;
+  --color-text-dark: #E6EDF2;
+  --color-text-light: #1F2937;
+  
+  --font-sans: 'Inter', 'Poppins', system-ui, sans-serif;
+}
+
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+
+  /* Scrollbar Customizada */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #4B5563;
+    border-radius: 4px;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #E50914;
+  }
+}
+
+/* Efeito Blur e Glassmorphism */
+.glassmorphism {
+  background: rgba(13, 17, 23, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glassmorphism-light {
+  background: rgba(248, 250, 252, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Gradientes Fluidos */
+.hero-gradient-dark {
+  background: linear-gradient(to top, #0D1117 0%, rgba(13, 17, 23, 0.8) 40%, rgba(13, 17, 23, 0) 100%);
+}
+
+.hero-gradient-light {
+  background: linear-gradient(to top, #F8FAFC 0%, rgba(248, 250, 252, 0.8) 40%, rgba(248, 250, 252, 0) 100%);
+}
+
+.hero-side-gradient-dark {
+  background: linear-gradient(to right, #0D1117 10%, rgba(13, 17, 23, 0.7) 40%, rgba(13, 17, 23, 0) 100%);
+}
+
+.hero-side-gradient-light {
+  background: linear-gradient(to right, #F8FAFC 10%, rgba(248, 250, 252, 0.7) 40%, rgba(248, 250, 252, 0) 100%);
+}
+
+/* Carrossel Scroll Oculto */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
