@@ -136,6 +136,8 @@ export const Navbar: React.FC = () => {
                 }
               }}
               className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800/60 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors cursor-pointer"
+              aria-label="Abrir campo de busca"
+              title="Buscar"
             >
               <Search className="w-5 h-5" />
             </button>
@@ -145,7 +147,8 @@ export const Navbar: React.FC = () => {
           <button
             onClick={toggleTheme}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800/60 text-gray-400 hover:text-gray-800 dark:hover:text-white transition-colors cursor-pointer"
-            title={theme === 'dark' ? 'Modo Claro' : 'Modo Escuro'}
+            title={theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro'}
+            aria-label={theme === 'dark' ? 'Mudar para Modo Claro' : 'Mudar para Modo Escuro'}
           >
             {theme === 'dark' ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
@@ -169,6 +172,8 @@ export const Navbar: React.FC = () => {
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-gray-800/60 text-gray-400 hover:text-gray-850 dark:hover:text-white md:hidden transition-colors cursor-pointer"
+            aria-label={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
+            title={mobileMenuOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação'}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>

@@ -42,6 +42,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
         <button
           onClick={() => setValue('')}
           className="absolute right-4 text-gray-400 hover:text-gray-600 dark:hover:text-white transition-colors cursor-pointer"
+          aria-label="Limpar campo de busca"
+          title="Limpar busca"
         >
           <X className="w-5 h-5" />
         </button>

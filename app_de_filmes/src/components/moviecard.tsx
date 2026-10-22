@@ -116,6 +116,8 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, mediaType: initialM
                   ? 'bg-[#E50914] text-white'
                   : 'bg-black/55 text-white hover:bg-[#E50914] hover:scale-110'
               }`}
+              title={favorited ? `Remover ${title} dos favoritos` : `Adicionar ${title} aos favoritos`}
+              aria-label={favorited ? `Remover ${title} dos favoritos` : `Adicionar ${title} aos favoritos`}
             >
               <Heart className={`w-4 h-4 ${favorited ? 'fill-current' : ''}`} />
             </button>
@@ -183,6 +185,7 @@ export const MovieCard: React.FC<MovieCardProps> = ({ movie, mediaType: initialM
               <button
                 onClick={() => setTrailerKey(null)}
                 className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-[#E50914] transition-colors cursor-pointer"
+                aria-label="Fechar trailer"
               >
                 <X className="w-5 h-5" />
               </button>
