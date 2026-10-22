@@ -70,6 +70,16 @@ cd app_de_filmes
 npm install
 ```
 
+### Configure as variáveis de ambiente
+
+Copie o arquivo de exemplo para `.env`:
+
+```bash
+cp .env.example .env
+```
+
+Edite o `.env` e insira sua chave da API do TMDB (`VITE_TMDB_API_KEY`).
+
 ### Execute o projeto
 
 ```bash
@@ -80,11 +90,13 @@ npm run dev
 
 ## 🔑 Configuração da API
 
-Crie um arquivo `.env` na raiz do projeto e adicione sua chave da API do TMDB:
+Copie o arquivo `.env.example` para `.env` (na raiz ou dentro de `app_de_filmes`) e adicione sua chave da API do TMDB:
 
 ```env
 VITE_TMDB_API_KEY=SUA_CHAVE_AQUI
 ```
+
+Obtenha sua chave gratuitamente em: [The Movie Database API](https://www.themoviedb.org/settings/api).
 
 ---
 

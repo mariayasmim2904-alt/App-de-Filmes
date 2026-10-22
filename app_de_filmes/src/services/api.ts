@@ -9,16 +9,45 @@ import type {
   Genre 
 } from '../types/movie';
 
-const API_KEY = import.meta.env.VITE_TMDB_API_KEY || '26f82e13253f732c1d11e1e138b04d01';
+const rawKey = (import.meta.env.VITE_TMDB_API_KEY || '').trim().replace(/^['"]|['"]$/g, '');
+const isBearer = rawKey.startsWith('eyJ') || rawKey.length > 40;
 const BASE_URL = 'https://api.themoviedb.org/3';
 
 export const api = axios.create({
   baseURL: BASE_URL,
-  params: {
-    api_key: API_KEY,
-    language: 'pt-BR',
-  },
 });
+
+api.interceptors.request.use((config) => {
+  config.params = config.params || {};
+  if (!config.params.language) {
+    config.params.language = 'pt-BR';
+  }
+  if (rawKey) {
+    if (isBearer) {
+      if (config.headers && typeof (config.headers as any).set === 'function') {
+        (config.headers as any).set('Authorization', `Bearer ${rawKey}`);
+      } else {
+        config.headers = config.headers || {};
+        (config.headers as any)['Authorization'] = `Bearer ${rawKey}`;
+      }
+    } else {
+      config.params.api_key = rawKey;
+    }
+  }
+  return config;
+});
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      console.error(
+        '[TMDB API] Erro 401: Não autorizado. Verifique se a variável VITE_TMDB_API_KEY no arquivo .env é válida.'
+      );
+    }
+    return Promise.reject(error);
+  }
+);
 
 export const IMAGE_BASE_URL = 'https://image.tmdb.org/t/p';
 
