@@ -43,6 +43,7 @@ export const Hero: React.FC<HeroProps> = ({ movie }) => {
         showToast('Trailer indisponível para este título.', 'error');
       }
     } catch (error) {
+      console.error('Erro ao buscar o trailer:', error);
       showToast('Erro ao buscar o trailer.', 'error');
     } finally {
       setIsLoadingTrailer(false);
@@ -126,6 +127,7 @@ export const Hero: React.FC<HeroProps> = ({ movie }) => {
                   onClick={() => toggleFavorite(movie)}
                   className="flex items-center gap-2 px-4 py-3 rounded-xl bg-gray-200 dark:bg-white/10 hover:bg-gray-300 dark:hover:bg-white/20 transition-colors cursor-pointer"
                   title={favorited ? "Remover dos Favoritos" : "Adicionar aos Favoritos"}
+                  aria-label={favorited ? "Remover dos Favoritos" : "Adicionar aos Favoritos"}
                 >
                   <Heart 
                     className={`w-5 h-5 ${favorited ? "text-red-500 fill-red-500" : "text-gray-700 dark:text-white"}`} 
@@ -136,6 +138,7 @@ export const Hero: React.FC<HeroProps> = ({ movie }) => {
                   onClick={() => toggleWatchlist(movie)}
                   className="flex items-center gap-2 px-4 py-3 rounded-xl bg-gray-200 dark:bg-white/10 hover:bg-gray-300 dark:hover:bg-white/20 transition-colors cursor-pointer"
                   title={watchlisted ? "Remover da Watchlist" : "Adicionar à Watchlist"}
+                  aria-label={watchlisted ? "Remover da Watchlist" : "Adicionar à Watchlist"}
                 >
                   <Bookmark 
                     className={`w-5 h-5 ${watchlisted ? "text-blue-500 fill-blue-500" : "text-gray-700 dark:text-white"}`} 
@@ -175,6 +178,7 @@ export const Hero: React.FC<HeroProps> = ({ movie }) => {
               <button
                 onClick={() => setTrailerKey(null)}
                 className="absolute top-4 right-4 z-10 p-2 rounded-full bg-black/60 text-white hover:bg-[#E50914] transition-colors cursor-pointer"
+                aria-label="Fechar trailer"
               >
                 <X className="w-5 h-5" />
               </button>

@@ -47,6 +47,8 @@ export const Footer: React.FC = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="p-2 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-600 dark:text-gray-400 hover:text-white hover:bg-[#3B82F6] transition-all"
+              aria-label="Acessar website oficial do TMDB"
+              title="Acessar website do TMDB"
             >
               <Globe className="w-4 h-4" />
             </a>
